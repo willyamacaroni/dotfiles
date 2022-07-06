@@ -1,0 +1,60 @@
+local Plug = vim.fn['plug#']
+
+vim.call('plug#begin', '~/.config/nvim/plugged')
+
+Plug('hoob3rt/lualine.nvim')
+
+Plug('jlanzarotta/bufexplorer')
+
+Plug('numkil/ag.nvim')
+
+Plug('github/copilot.vim')
+
+Plug('axelf4/vim-strip-trailing-whitespace')
+
+-- cmp plugins
+Plug('hrsh7th/nvim-cmp')
+Plug('hrsh7th/cmp-buffer')
+Plug('hrsh7th/cmp-path')
+Plug('hrsh7th/cmp-cmdline')
+Plug('hrsh7th/cmp-nvim-lsp')
+
+Plug('neovim/nvim-lspconfig')
+Plug('williamboman/nvim-lsp-installer')
+
+
+Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
+
+Plug('nvim-lua/plenary.nvim')
+Plug('nvim-telescope/telescope.nvim')
+
+-- This doesn't always work. If telescope is erroring do the following
+-- cd ~/.config/nvim/plugged/telescope-fzf-native.nvim && make
+Plug('nvim-telescope/telescope-fzf-native.nvim', {['do'] = 'make'})
+
+-- Plug('nvim-lua/plenary.nvim')
+Plug('lewis6991/gitsigns.nvim')
+
+Plug('ethanholz/nvim-lastplace')
+
+Plug('kyazdani42/nvim-web-devicons')
+Plug('kyazdani42/nvim-tree.lua')
+
+Plug('pbrisbin/vim-mkdir')
+Plug('tpope/vim-commentary')
+Plug('tpope/vim-endwise')
+Plug('tpope/vim-eunuch')
+Plug('tpope/vim-fugitive')
+Plug('tpope/vim-projectionist')
+Plug('tpope/vim-rails')
+Plug('tpope/vim-rake')
+Plug('tpope/vim-repeat')
+
+Plug('lukas-reineke/indent-blankline.nvim')
+
+Plug('akinsho/git-conflict.nvim')
+
+Plug('terryma/vim-multiple-cursors')
+
+Plug('tpope/vim-surround')
+vim.call('plug#end')
