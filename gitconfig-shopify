@@ -1,0 +1,18 @@
+[credential]
+  helper =
+  helper = store --file /opt/dev/var/private/git_credential_store
+[diff]
+  algorithm = patience
+[url "https://github.com/Shopify/"]
+  insteadOf = git@github.com:Shopify/
+  insteadOf = git@github.com:shopify/
+  insteadOf = ssh://git@github.com/Shopify/
+  insteadOf = ssh://git@github.com/shopify/
+[gpg]
+  program = /opt/dev/bin/gpg-auto-pin
+[commit]
+  gpgSign = false
+[user]
+  email = willyam.arcand@shopify.com
+  name = Willyam Arcand
+  signingkey = 1E52624F6023BCFA4EEA51E5BB6BA5E2C4F28631
