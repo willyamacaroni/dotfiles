@@ -1,0 +1,27 @@
+[include]
+  path = ~/.gitconfig-default
+[includeIf "gitdir:~/dotfiles/**"]
+  path = ~/.gitconfig-personal
+[init]
+  defaultBranch = main
+[push]
+  default = current
+[color]
+  ui = auto
+[core]
+  excludesfile = ~/.gitignore
+  editor = nvim
+  autocrlf = input
+[merge]
+  ff = only
+[commit]
+  template = ~/.gitmessage
+[fetch]
+  prune = true
+[rebase]
+  autosquash = true
+[diff]
+  colorMoved = zebra
+[user]
+	name = Willyam Arcand
+	email = willyam.arcand@shopify.com
