@@ -14,3 +14,4 @@ else
   cp -f gitconfig-personal gitconfig-default
 fi
 
+env RCRC=$HOME/dotfiles/rcrc rcup -f

@@ -20,9 +20,17 @@ sudo ./nvim.appimage --appimage-extract
 sudo rm -f /usr/local/bin/nvim
 sudo ln -s $PWD/squashfs-root/usr/bin/nvim /usr/local/bin/nvim
 
-python3 -m pip install neovim
-sudo gem install neovim
-npm -g install neovim
+if [[ -n $(command -v python3.9) ]]; then
+    python3.9 -m pip install neovim
+fi
+
+if [[ -n $(command -v gem) ]]; then
+  sudo gem install neovim
+fi
+
+if [[ -n $(command -v gem) ]]; then
+  npm -g install neovim
+fi
 
 if [[ ! -f /usr/local/bin/tree-sitter ]]; then
   mkdir -p $HOME/dotfiles/tmp

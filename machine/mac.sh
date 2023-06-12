@@ -21,7 +21,5 @@ cp fonts/Inconsolata\ Nerd\ Font\ Complete\ Mono.otf ~/Library/Fonts/
 # Setup expected defaults
 $HOME/dotfiles/machine/mac/defaults.sh
 
-env RCRC=$HOME/dotfiles/rcrc rcup -f
-
 # runs post-up hook
 $HOME/dotfiles/hooks/post-up
