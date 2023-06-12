@@ -20,7 +20,7 @@ sudo ./nvim.appimage --appimage-extract
 sudo rm -f /usr/local/bin/nvim
 sudo ln -s $PWD/squashfs-root/usr/bin/nvim /usr/local/bin/nvim
 
-python3.9 -m pip install neovim
+python3 -m pip install neovim
 sudo gem install neovim
 npm -g install neovim
 
