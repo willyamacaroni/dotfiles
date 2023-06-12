@@ -113,9 +113,6 @@ set.colorcolumn = "+1"
 set.number = true
 set.numberwidth = 5
 
--- Tab completion
-set.wildmode = "list:longest,list:full"
-
 -- Treat <li> and <p> tags like the block tags they are
 vim.g.html_indent_tags = "li|p"
 
