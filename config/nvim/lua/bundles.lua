@@ -26,7 +26,7 @@ Plug('nvim-telescope/telescope-fzf-native.nvim', {['do'] = 'make'})
 
 Plug('kyazdani42/nvim-tree.lua')
 
-Plug('umkil/ag.nvim')
+Plug('numkil/ag.nvim')
 
 -- Praise the lord tpope
 Plug('tpope/vim-endwise')
