@@ -21,5 +21,3 @@ cp fonts/Inconsolata\ Nerd\ Font\ Complete\ Mono.otf ~/Library/Fonts/
 # Setup expected defaults
 $HOME/dotfiles/machine/mac/defaults.sh
 
-# runs post-up hook
-$HOME/dotfiles/hooks/post-up
