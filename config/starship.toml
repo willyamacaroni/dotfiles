@@ -10,7 +10,8 @@ $ruby
 $character"""
 
 [ruby]
-symbol = '🔺 '
+format = '$symbol'
+
 
 [git_status]
 conflicted = ''
