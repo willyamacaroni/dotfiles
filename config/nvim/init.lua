@@ -430,7 +430,8 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
-
+  -- ruby_ls = {},
+  -- sorbet = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
