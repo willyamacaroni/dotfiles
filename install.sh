@@ -1,9 +1,18 @@
 #!/bin/bash
 
+os=$(uname -s)
+
 if [ $SPIN ]; then
   ./machine/spin.sh
-else
+elif [ "$os" = "Darwin" ]; then
+  # Check macOS version
+  version=$(sw_vers -productVersion)
   ./machine/mac.sh
+elif [ "$os" = "Linux" ]; then
+  
+  ./machine/ubuntu.sh
+else 
+  echo "Unsupported operating system"
 fi
 
 if [ $SPIN ]; then
