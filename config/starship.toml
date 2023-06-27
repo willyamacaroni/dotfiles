@@ -38,4 +38,4 @@ style = "fg:33"
 added_style = 'bold blue'
 deleted_style = 'red'
 format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
-disabled = false 
+disabled = true 
