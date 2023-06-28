@@ -3,6 +3,5 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  'nvim-neo-tree/neo-tree.nvim',
-  dependencies = { "MunifTanjim/nui.nvim", "nvim-tree/nvim-web-devicons" },
+  require "custom.plugins.neo-tree"
 }
