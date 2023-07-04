@@ -533,5 +533,25 @@ for _, source in ipairs { "autocmds" } do
   if not status_ok then vim.api.nvim_err_writeln("Failed to load " .. source .. "\n\n" .. fault) end
 end
 
+-- Fix clipboard in spin
+local function get_clipboard()
+  if vim.env.SPIN == "1" then
+    return {
+      name = "pbcopy",
+      copy = {
+        ["+"] = "pbcopy",
+        ["*"] = "pbcopy",
+      },
+      paste = {
+        ["+"] = "pbpaste",
+        ["*"] = "pbpaste",
+      },
+      cache_enabled = 1,
+    }
+  else
+    return nil
+  end
+end
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
