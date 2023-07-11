@@ -11,5 +11,6 @@ return {
         },
       },
     })
+    vim.cmd([[nnoremap <leader>rf :Neotree reveal<cr>]])
   end
 }
