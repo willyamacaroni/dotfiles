@@ -3,5 +3,7 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  require "custom.plugins.neo-tree"
+  require "custom.plugins.neo-tree",
+  require "custom.plugins.copilot",
+  require "custom.plugins.copilot-cmp"
 }
