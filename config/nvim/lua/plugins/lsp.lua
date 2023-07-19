@@ -1,5 +1,5 @@
 return {
-    -- add ruby_ls and sorbet lsp to lspconfig
+  -- add ruby_ls and sorbet lsp to lspconfig
   {
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts
@@ -8,11 +8,12 @@ return {
       servers = {
         -- ruby_ls and sorbet will be automatically installed with mason and loaded with lspconfig
         ruby_ls = {},
-        sorbet = {},
+        sorbet = {
+          root_dir = require("lspconfig.util").find_git_ancestor,
+        },
       },
     },
   },
- 
   -- add pyright to lspconfig
   {
     "neovim/nvim-lspconfig",
@@ -25,12 +26,11 @@ return {
       },
     },
   },
-
   -- add tsserver and setup with typescript.nvim instead of lspconfig
   {
     "neovim/nvim-lspconfig",
     opts = {
-      servers ={
+      servers = {
         jsonls = {},
         lua_ls = {
           -- mason = false, -- set to false if you don't want this server to be installed with mason
@@ -50,11 +50,9 @@ return {
           },
         },
         ruby_ls = {},
-        sorbet = {}
+        sorbet = {},
       },
-      setup = {
-
-      },
+      setup = {},
     },
   },
 }
