@@ -1,5 +1,4 @@
 #THEME
-#ZSH_THEME="gozilla"
+ZSH_THEME="pixegami-agnoster"
 
-#source ~/.oh-my-zsh/oh-my-zsh.sh
-
+source ~/.oh-my-zsh/oh-my-zsh.sh
