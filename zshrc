@@ -51,3 +51,11 @@ fd() {
 
 neofetch --ascii_colors 2 2 2 2 2 2 --colors 2 2 2 2
 # [[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
+neofetch --ascii_colors 6 7 --colors 2 2 2 2
+
+# bun completions
+[ -s "/home/wilyuhm/.bun/_bun" ] && source "/home/wilyuhm/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

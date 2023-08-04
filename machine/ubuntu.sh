@@ -9,6 +9,8 @@ sudo apt-get install fuse libfuse2 git python3-pip ack-grep -y
 pip3 install --user powerline-status
 sudo apt install -y fonts-powerline
 
+sudo apt-get install neofetch
+
 # install starship
 curl -sS https://starship.rs/install.sh | sh
 
