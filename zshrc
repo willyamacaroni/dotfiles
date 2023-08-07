@@ -49,7 +49,7 @@ fd() {
   git diff $@ --name-only | fzf -m --ansi --preview $preview
 }
 
-neofetch --ascii_colors 2 2 2 2 2 2 --colors 2 2 2 2
+neofetch
 # [[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
 neofetch --ascii_colors 6 7 --colors 2 2 2 2
 

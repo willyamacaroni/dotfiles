@@ -10,6 +10,7 @@ brew "rcm"
 brew "starship"
 brew "the_silver_searcher"
 brew "luarocks"
+brew "lolcat"
 cask "iterm2"
 EOF
 
@@ -30,7 +31,7 @@ sudo cp $HOME/dotfiles/zsh/themes/pixegami-agnoster.zsh-theme $HOME/.oh-my-zsh/t
 # Dracula
 ln -s $HOME/dotfiles/zsh/themes/dracula/dracula.zsh-theme $HOME/.oh-my-zsh/themes/dracula.zsh-theme
 
-# Install neofetch
+# Install neofetch and lolcat
 sudo apt install neofetch
 
 # Install preferred font
