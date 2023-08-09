@@ -51,7 +51,6 @@ fd() {
 
 neofetch
 # [[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
-neofetch --ascii_colors 6 7 --colors 2 2 2 2
 
 # bun completions
 [ -s "/home/wilyuhm/.bun/_bun" ] && source "/home/wilyuhm/.bun/_bun"
