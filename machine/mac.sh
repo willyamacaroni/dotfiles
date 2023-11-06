@@ -11,6 +11,7 @@ brew "starship"
 brew "the_silver_searcher"
 brew "luarocks"
 brew "lolcat"
+brew "tmux"
 cask "iterm2"
 EOF
 
