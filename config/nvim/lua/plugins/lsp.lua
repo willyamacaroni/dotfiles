@@ -7,7 +7,6 @@ return {
       ---@type lspconfig.options
       servers = {
         -- ruby_ls and sorbet will be automatically installed with mason and loaded with lspconfig
-        ruby_ls = {},
         sorbet = {
           root_dir = require("lspconfig.util").find_git_ancestor,
         },
