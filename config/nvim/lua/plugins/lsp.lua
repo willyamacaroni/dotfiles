@@ -48,7 +48,6 @@ return {
             },
           },
         },
-        ruby_ls = {},
         sorbet = {},
       },
       setup = {},
