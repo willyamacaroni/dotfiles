@@ -24,4 +24,14 @@ local function get_clipboard()
 end
 vim.g.clipboard = get_clipboard()
 
+-- copy filepath and line number
+vim.cmd([[
+  function! CopyFilePathAndLine()
+    let l:file_path = expand('%:~:.') . ':' . line('.')
+    let @+=l:file_path
+    echo 'Copied to clipboard: ' . l:file_path
+  endfunction
+
+]])
+
 require("config.lazy")
