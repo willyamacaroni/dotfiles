@@ -1,12 +1,22 @@
 return {
   -- add ruby_ls and sorbet lsp to lspconfig
   {
+    "williamboman/mason.nvim",
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, {
+        "rubocop@1.57.2",
+      })
+    end,
+  },
+  {
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts
     opts = {
       ---@type lspconfig.options
       servers = {
-        -- ruby_ls and sorbet will be automatically installed with mason and loaded with lspconfig
+        -- rubocop, ruby_ls and sorbet will be automatically installed with mason and loaded with lspconfig
+        rubocop = {},
+        ruby_ls = {},
         sorbet = {
           root_dir = require("lspconfig.util").find_git_ancestor,
         },
@@ -48,6 +58,7 @@ return {
             },
           },
         },
+        ruby_ls = {},
         sorbet = {},
       },
       setup = {},
