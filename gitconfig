@@ -26,3 +26,8 @@
 [user]
 	name = Willyam Arcand
 	email = willyam.arcand@shopify.com
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
