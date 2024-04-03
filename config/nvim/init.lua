@@ -4,6 +4,7 @@ vim.opt.textwidth = 80
 vim.opt.colorcolumn = "+1"
 
 -- Fix clipboard in spin
+vim.opt.clipboard = "unnamedplus"
 local function get_clipboard()
   if vim.env.SPIN == "1" then
     return {
