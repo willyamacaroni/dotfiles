@@ -16,8 +16,6 @@ fi
 brew bundle --file=- <<EOF
 tap "neovim/neovim"
 
-brew "openjdk"
-brew "jenv"
 brew "fzf"
 brew "neovim"
 brew "rcm"
@@ -30,19 +28,18 @@ cask "iterm2"
 cask "rectangle"
 EOF
 
+brew install openjdk
+JAVA_HOME_SET="export JAVA_HOME=\$(brew --prefix openjdk)"
+source ~/.zshrc
+
+sudo ln -sfn $(brew --prefix)/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+
+pip3 install --user --break-system-packages powerline-status
+
+brew tap homebrew/cask-fonts
+brew install --cask font-powerline-symbols
+
 brew cleanup
-
-export JAVA_HOME=$(/usr/libexec/java_home)
-echo "export JAVA_HOME=$(/usr/libexec/java_home)" >>~/.zshrc
-
-echo 'export PATH="$HOME/.jenv/bin:$PATH"' >>~/.zshrc
-echo 'eval "$(jenv init -)"' >>~/.zshrc
-#
-# add the installed Java to jenv
-jenv add $(/usr/libexec/java_home)
-
-pip3 install --user powerline-status
-sudo apt install -y fonts-powerline
 
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -55,9 +52,6 @@ sudo cp $HOME/dotfiles/zsh/themes/pixegami-agnoster.zsh-theme $HOME/.oh-my-zsh/t
 
 # Dracula
 ln -s $HOME/dotfiles/zsh/themes/dracula/dracula.zsh-theme $HOME/.oh-my-zsh/themes/dracula.zsh-theme
-
-# Install neofetch and lolcat
-sudo apt install neofetch
 
 # Install preferred font
 cp -a fonts/RobotoMono ~/Library/Fonts/
