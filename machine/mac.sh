@@ -27,7 +27,7 @@ brew "luarocks"
 brew "lolcat"
 brew "tmux"
 cask "iterm2"
-cast "rectangle"
+cask "rectangle"
 EOF
 
 brew cleanup

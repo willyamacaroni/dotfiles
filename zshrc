@@ -64,3 +64,6 @@ gco() {
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export JAVA_HOME=
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
