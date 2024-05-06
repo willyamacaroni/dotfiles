@@ -24,8 +24,11 @@ brew "the_silver_searcher"
 brew "luarocks"
 brew "lolcat"
 brew "tmux"
+brew "ripgrap"
 cask "iterm2"
 cask "rectangle"
+cask "bartender"
+cask "meetingbar"
 EOF
 
 brew install openjdk
