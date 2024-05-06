@@ -24,7 +24,7 @@ brew "the_silver_searcher"
 brew "luarocks"
 brew "lolcat"
 brew "tmux"
-brew "ripgrap"
+brew "ripgrep"
 cask "iterm2"
 cask "rectangle"
 cask "bartender"
@@ -59,6 +59,7 @@ ln -s $HOME/dotfiles/zsh/themes/dracula/dracula.zsh-theme $HOME/.oh-my-zsh/theme
 # Install preferred font
 cp -a fonts/RobotoMono ~/Library/Fonts/
 cp fonts/Inconsolata\ Nerd\ Font\ Complete\ Mono.otf ~/Library/Fonts/
+cp fonts/Hack/* ~/Library/Fonts/
 
 # Setup expected defaults
 $HOME/dotfiles/machine/mac/defaults.sh
