@@ -48,3 +48,7 @@ defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles
 
 # Tell iTerm2 to use the custom preferences in the directory
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+
+# invert mouse scroll
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
+
