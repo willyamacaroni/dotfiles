@@ -67,7 +67,7 @@ DRACULA_ARROW_ICON="-> "
 The custom segment can be changed by setting the `DRACULA_CUSTOM_VARIABLE` environmental variable.
 
 ```sh
-export DRACULA_CUSTOM_VARIABLE=AWS:PROD:EU-WEST-1
+# export DRACULA_CUSTOM_VARIABLE=AWS:PROD:EU-WEST-1
 ```
 
 ### New Line for commands

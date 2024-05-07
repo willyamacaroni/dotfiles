@@ -16,7 +16,10 @@ return {
       sorting_strategy = "descending",
       winblend = 0,
       mappings = {
-        n = {},
+        n = {
+          ["<C-k>"] = require("telescope.actions").preview_scrolling_up,
+          ["<C-j>"] = require("telescope.actions").preview_scrolling_down,
+        },
       },
     })
     opts.pickers = {
