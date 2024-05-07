@@ -8,6 +8,7 @@ return {
   },
   config = function(_, opts)
     local telescope = require("telescope")
+    local actions = require("telescope.actions")
 
     opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
       wrap_results = true,
@@ -16,9 +17,9 @@ return {
       sorting_strategy = "descending",
       winblend = 0,
       mappings = {
-        n = {
-          ["<C-k>"] = require("telescope.actions").preview_scrolling_up,
-          ["<C-j>"] = require("telescope.actions").preview_scrolling_down,
+        i = {
+          ["<c-k>"] = actions.preview_scrolling_up,
+          ["<c-j>"] = actions.preview_scrolling_down,
         },
       },
     })
