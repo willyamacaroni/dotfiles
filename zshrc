@@ -68,3 +68,6 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export JAVA_HOME=$(brew --prefix openjdk)
 
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+
+# cloudplatform: add Shopify clusters to your local kubernetes config
+export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/willyamarcand/.kube/config:/Users/willyamarcand/.kube/config.shopify.cloudplatform
