@@ -17,5 +17,14 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
+-- copy filepath and line number
+vim.cmd([[
+  function! CopyFilePathAndLine()
+    let l:file_path = expand('%:~:.') . ':' . line('.')
+    let @+=l:file_path
+    echo 'Copied to clipboard: ' . l:file_path
+  endfunction
+
+]])
 -- map("n", "<leader>ch", "<cmd>BufferLineCloseLeft<cr>", { desc = "Close Prev Buffer" })
 vim.api.nvim_set_keymap("n", "yl", ":call CopyFilePathAndLine()<CR>", { noremap = true, silent = true })
