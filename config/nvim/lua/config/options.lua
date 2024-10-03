@@ -11,12 +11,10 @@ local function get_clipboard()
       copy = {
         ["+"] = "pbcopy",
         ["*"] = "pbcopy",
-        ['"'] = "pbcopy",
       },
       paste = {
         ["+"] = "pbpaste",
         ["*"] = "pbpaste",
-        ['"'] = "pbpaste",
       },
       cache_enabled = 1,
     }
