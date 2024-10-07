@@ -45,8 +45,20 @@ export PATH="$HOME/.bin:$PATH"
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
 
 fd() {
-  preview="git diff $@ --color=always -- {-1}"
-  git diff $@ --name-only | fzf -m --ansi --preview $preview
+  local target_branch=""
+
+  # Check if the first argument is a branch name
+  target_branch="$1"
+  shift # Remove the branch name from the arguments
+
+  # Construct the preview command
+  if [ -n "$target_branch" ]; then
+    preview="git diff $target_branch --color=always -- {-1}"
+    git diff $target_branch --name-only | fzf -m --ansi --preview "$preview"
+  else
+    preview="git diff $@ --color=always -- {-1}"
+    git diff $@ --name-only | fzf -m --ansi --preview "$preview"
+  fi
 }
 
 gco() {
