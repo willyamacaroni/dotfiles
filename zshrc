@@ -44,6 +44,10 @@ export PATH="$HOME/.bin:$PATH"
 
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
 
+c(){
+  clear
+}
+
 fd() {
   local target_branch=""
 
