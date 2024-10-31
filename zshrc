@@ -65,6 +65,13 @@ fd() {
   fi
 }
 
+tm() {
+  session=$(tmux list-sessions -F "#{session_name}" | fzf)
+  if [ -n "$session" ]; then
+    tmux attach-session -t "$session"
+  fi
+}
+
 gco() {
   local branches branch
   branches=$(git branch) &&
