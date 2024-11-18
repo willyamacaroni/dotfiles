@@ -66,9 +66,13 @@ fd() {
 }
 
 tm() {
-  session=$(tmux list-sessions -F "#{session_name}" | fzf)
-  if [ -n "$session" ]; then
-    tmux attach-session -t "$session"
+  if [ -n "$1" ]; then
+    tmux new-session -A -s "$1"
+  else
+    session=$(tmux list-sessions -F "#{session_name}" | fzf)
+    if [ -n "$session" ]; then
+      tmux attach-session -t "$session"
+    fi
   fi
 }
 
