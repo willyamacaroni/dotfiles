@@ -21,7 +21,12 @@ return {
           root_dir = require("lspconfig.util").find_git_ancestor,
         },
         eslint = {
-          root_dir = require("lspconfig.util").root_pattern(".eslintrc.js", ".eslintrc.json"),
+          root_dir = require("lspconfig.util").root_pattern(
+            ".eslintrc.js",
+            ".eslintrc.json",
+            ".eslintrc.config.js",
+            "eslint.config.js"
+          ),
           on_attach = function(client)
             client.server_capabilities.documentFormattingProvider = false
           end,
