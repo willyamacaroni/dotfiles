@@ -5,7 +5,6 @@ return {
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         -- "rubocop",
-        "typescript-language-server",
       })
     end,
   },
@@ -21,13 +20,8 @@ return {
         sorbet = {
           root_dir = require("lspconfig.util").find_git_ancestor,
         },
-        tsserver = {
-          root_dir = require("lspconfig.util").root_pattern("package.json"),
-          settings = {
-            completions = {
-              completeFunctionCalls = true,
-            },
-          },
+        eslint = {
+          root_dir = require("lspconfig.util").root_pattern(".eslintrc.js", ".eslintrc.json"),
           on_attach = function(client)
             client.server_capabilities.documentFormattingProvider = false
           end,
