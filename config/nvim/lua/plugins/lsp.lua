@@ -20,14 +20,7 @@ return {
         sorbet = {
           root_dir = require("lspconfig.util").find_git_ancestor,
         },
-        eslint = {
-          root_dir = require("lspconfig.util").root_pattern(
-            ".eslintrc.js",
-            ".eslintrc.json",
-            ".eslintrc.config.js",
-            "eslint.config.js"
-          ),
-        },
+        eslint = {},
       },
     },
   },

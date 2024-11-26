@@ -13,15 +13,11 @@ defaults write com.apple.dock wvous-bl-modifier -int 0
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-
-
 ### Finder
 
 # Use column view in all Finder windows by default
 # Four-letter codes for the other view modes: `icnv`, `Nlsv`, `Flwv`
 defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
-
-
 
 ### Dock
 
@@ -52,3 +48,4 @@ defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 # invert mouse scroll
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
 
+defaults write -g ApplePressAndHoldEnabled -bool false
