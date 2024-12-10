@@ -51,11 +51,9 @@ c(){
 fd() {
   local target_branch=""
 
-  # Check if the first argument is a branch name
   target_branch="$1"
-  shift # Remove the branch name from the arguments
+  shift
 
-  # Construct the preview command
   if [ -n "$target_branch" ]; then
     preview="git diff $target_branch --color=always -- {-1}"
     git diff $target_branch --name-only | fzf -m --ansi --preview "$preview"
@@ -82,6 +80,12 @@ gco() {
   branch=$(echo "$branches" | fzf +m) &&
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
+
+# fuzzyfind default options
+export FZF_DEFAULT_OPTS="
+  --bind 'ctrl-j:preview-down'
+  --bind 'ctrl-k:preview-up'
+"
 
 # [[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
 
