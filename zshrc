@@ -48,6 +48,22 @@ c(){
   clear
 }
 
+alias gitlog="git log --graph --pretty=format:'%C(yellow)%h%C(reset) -%C(red)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)' --abbrev-commit"
+alias gitbranches="git for-each-ref --sort=-committerdate refs/heads/ --format='%(color:red)%(objectname:short)%(color:reset) - %(color:green)%(refname:short)%(color:reset) - %(color:yellow)%(subject)%(color:reset) %(color:blue)(%(committerdate:relative))%(color:reset)'"
+alias gitstatus="git status -sb"
+
+ga {
+    git status --short | fzf --multi --preview 'git diff --color=always -- {}' --preview-window right:70%:wrap \
+        | awk '{print $2}' | xargs -o git add
+}
+
+gcb() {
+    local branches branch
+    branches=$(git branch --all | grep -v HEAD | sed 's/ remotes\/origin\///' | sed 's/..//' | sort -u) 
+    branch=$(echo "$branches" | fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") ))) || return
+    git checkout $(echo "$branch" | awk '{print $1}')
+}
+
 fd() {
   local target_branch=""
 
@@ -62,6 +78,7 @@ fd() {
     git diff $@ --name-only | fzf -m --ansi --preview "$preview"
   fi
 }
+
 
 tm() {
   if [ -n "$1" ]; then
