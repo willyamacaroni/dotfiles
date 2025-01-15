@@ -1,53 +1,39 @@
 return {
-  -- add ruby_ls and sorbet lsp to lspconfig
+  -- Mason setup (if needed)
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
-        -- "rubocop",
+        -- Add any tools you need here
       })
     end,
   },
+  -- Consolidated LSP configurations
   {
     "neovim/nvim-lspconfig",
-    ---@class PluginLspOpts
-    opts = {
-      ---@type lspconfig.options
-      servers = {
-        -- rubocop, ruby_ls and sorbet will be automatically installed with mason and loaded with lspconfig
+    opts = function(_, opts)
+      -- Initialize the servers table if it's nil
+      opts.servers = opts.servers or {}
+
+      -- Merge your server configurations
+      opts.servers = vim.tbl_deep_extend("force", opts.servers, {
+        -- Add Ruby LSPs
         rubocop = {},
         ruby_ls = {},
         sorbet = {
-          root_dir = require("lspconfig.util").find_git_ancestor,
+          root_dir = function(fname)
+            local util = require("lspconfig.util")
+            return util.root_pattern("sorbet/config")(fname) or util.find_git_ancestor(fname)
+          end,
         },
-        eslint = {},
-      },
-    },
-  },
-  -- add pyright to lspconfig
-  {
-    "neovim/nvim-lspconfig",
-    ---@class PluginLspOpts
-    opts = {
-      ---@type lspconfig.options
-      servers = {
-        -- pyright will be automatically installed with mason and loaded with lspconfig
+        -- Add Python LSP
         pyright = {},
-      },
-    },
-  },
-  -- add tsserver and setup with typescript.nvim instead of lspconfig
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
+        -- Add JavaScript/TypeScript LSPs
+        eslint = {},
+        -- Add JSON LSP
         jsonls = {},
+        -- Add Lua LSP with settings
         lua_ls = {
-          -- mason = false, -- set to false if you don't want this server to be installed with mason
-          -- Use this to add any additional keymaps
-          -- for specific lsp servers
-          ---@type LazyKeys[]
-          -- keys = {},
           settings = {
             Lua = {
               workspace = {
@@ -59,10 +45,11 @@ return {
             },
           },
         },
-        ruby_ls = {},
-        sorbet = {},
-      },
-      setup = {},
-    },
+        -- Add any other servers you need
+      })
+
+      -- Any additional setup can go here
+      opts.setup = opts.setup or {}
+    end,
   },
 }
