@@ -31,3 +31,5 @@
   ci = commit
   br = branch
   co = checkout
+[maintenance]
+	repo = /Users/willyamarcand/world/trees/root/src

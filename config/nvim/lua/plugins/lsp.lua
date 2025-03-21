@@ -19,7 +19,7 @@ return {
       opts.servers = vim.tbl_deep_extend("force", opts.servers, {
         -- Add Ruby LSPs
         rubocop = {},
-        ruby_ls = {},
+        ruby_lsp = {},
         sorbet = {
           root_dir = function(fname)
             local util = require("lspconfig.util")
