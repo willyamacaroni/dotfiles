@@ -2,14 +2,14 @@
 
 # install brew
 if ! command -v brew &>/dev/null; then
-	echo "Homebrew not installed. Installing now."
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo "Homebrew not installed. Installing now."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-	(
-		echo
-		echo 'eval "$(/opt/homebrew/bin/brew shellenv)"'
-	) >>/Users/willyamarcand/.zprofile
-	eval "$(/opt/homebrew/bin/brew shellenv)"
+  (
+    echo
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"'
+  ) >>/Users/willyamarcand/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # Install expected apps
