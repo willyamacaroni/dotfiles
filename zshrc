@@ -158,7 +158,6 @@ export FZF_DEFAULT_OPTS="
   --bind 'ctrl-k:preview-up'
 "
 
-# [[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
 
 # bun completions
 [ -s "/home/wilyuhm/.bun/_bun" ] && source "/home/wilyuhm/.bun/_bun"
