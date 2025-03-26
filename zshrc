@@ -172,3 +172,5 @@ export JAVA_HOME=$(brew --prefix openjdk)
 
 # cloudplatform: add Shopify clusters to your local kubernetes config
 export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/willyamarcand/.kube/config:/Users/willyamarcand/.kube/config.shopify.cloudplatform
+
+[[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
