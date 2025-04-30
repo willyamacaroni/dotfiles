@@ -46,3 +46,10 @@ require("lazy").setup({
     },
   },
 })
+
+-- LazyVim root dir detection
+-- Each entry can be:
+-- * the name of a detector function like `lsp` or `cwd`
+-- * a pattern or array of patterns like `.git` or `lua`.
+-- * a function with signature `function(buf) -> string|string[]`
+vim.g.root_spec = { "lsp", "zone.nix", { ".git", "lua" }, "cwd" }
