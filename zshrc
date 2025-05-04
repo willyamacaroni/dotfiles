@@ -48,99 +48,6 @@ c(){
   clear
 }
 
-alias gitlog="git log --graph --pretty=format:'%C(yellow)%h%C(reset) -%C(red)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)' --abbrev-commit"
-alias gitbranches="git for-each-ref --sort=-committerdate refs/heads/ --format='%(color:red)%(objectname:short)%(color:reset) - %(color:green)%(refname:short)%(color:reset) - %(color:yellow)%(subject)%(color:reset) %(color:blue)(%(committerdate:relative))%(color:reset)'"
-alias gitstatus="git status -sb"
-
-ga() {
-  # Collect all files: untracked, staged, and unstaged
-  local files=$({git diff --name-only --diff-filter=d && git ls-files --others --exclude-standard} | sort | uniq )
-
-  # Use fzf to pick files, showing relevant git diff for each file
-  if [ -z "$files" ]; then
-    echo "No files to add"
-    return
-  else
-    echo "$files" | fzf -m --ansi --preview '
-      file="{}";
-      file="${file#'\''}"
-      file="${file%'\''}"
-
-      if git ls-files --others --exclude-standard | grep -q "^$file$"; then
-        git diff --color=always -- /dev/null "$file"
-      elif git diff --name-only --cached | grep -q "^$file$"; then
-        if git diff --name-only | grep -q "^$file$"; then
-          git diff --color=always "$file"
-        else
-          git diff --color=always --cached -- "$file"
-        fi
-      else
-        git diff --color=always "$file"
-      fi' --preview-window up:70% |
-    while IFS= read -r file; do
-      file="${file%'\''}"
-      file="${file%'\''}"
-      git add "$file"
-    done
-  fi
-}
-
-grestore() {
-  # Collect all files: untracked, staged, and unstaged
-  local files=$({git diff --staged --name-only --diff-filter=d } | sort | uniq )
-
-  # Use fzf to pick files, showing relevant git diff for each file
-  if [ -z "$files" ]; then
-    echo "No files to add"
-    return
-  else
-    echo "$files" | fzf -m --ansi --preview '
-      file="{}";
-      file="${file#'\''}"
-      file="${file%'\''}"
-
-      if git ls-files --others --exclude-standard | grep -q "^$file$"; then
-        git diff --color=always -- /dev/null "$file"
-      elif git diff --name-only --cached | grep -q "^$file$"; then
-        if git diff --name-only | grep -q "^$file$"; then
-          git diff --color=always "$file"
-        else
-          git diff --color=always --cached -- "$file"
-        fi
-      else
-        git diff --color=always "$file"
-      fi' --preview-window up:70% |
-    while IFS= read -r file; do
-      file="${file%'\''}"
-      file="${file%'\''}"
-      git restore --staged "$file"
-    done
-  fi
-}
-
-gco() {
-    local branches branch
-    branches=$(git branch | grep -v HEAD | sed 's/ remotes\/origin\///' | sed 's/..//' | sort -u) 
-    branch=$(echo "$branches" | fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") ))) || return
-    git checkout $(echo "$branch" | awk '{print $1}')
-}
-
-gd() {
-  local target_branch=""
-
-  target_branch="$1"
-  shift
-
-  if [ -n "$target_branch" ]; then
-    preview="git diff $target_branch --color=always -- {-1}"
-    git diff $target_branch --name-only | fzf -m --ansi --preview "$preview"
-  else
-    preview="git diff $@ --color=always -- {-1}"
-    git diff $@ --name-only | fzf -m --ansi --preview "$preview"
-  fi
-}
-
-
 tm() {
   if [ -n "$1" ]; then
     tmux new-session -A -s "$1"
@@ -165,8 +72,8 @@ export FZF_DEFAULT_OPTS="
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-export JAVA_HOME=$(brew --prefix openjdk)
+# export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+# export JAVA_HOME=$(brew --prefix openjdk)
 
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 

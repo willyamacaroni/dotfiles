@@ -34,12 +34,15 @@ fc-cache -f -v
 sudo apt install -y git-core zsh curl
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-# Install theme
-sudo cp ../zsh/themes/pixegami-agnoster.zsh-theme $HOME/.oh-my-zsh/themes/pixegami-agnoster.zsh-theme
-
 # Install plug-ins (you can git-pull to update them later).
 (cd $HOME/.oh-my-zsh/custom/plugins && git clone https://github.com/zsh-users/zsh-syntax-highlighting)
 (cd $HOME/.oh-my-zsh/custom/plugins && git clone https://github.com/zsh-users/zsh-autosuggestions)
+
+# Install theme
+sudo cp $HOME/dotfiles/zsh/themes/pixegami-agnoster.zsh-theme $HOME/.oh-my-zsh/themes/pixegami-agnoster.zsh-theme
+
+# Dracula
+ln -s $HOME/dotfiles/zsh/themes/dracula/dracula.zsh-theme $HOME/.oh-my-zsh/themes/dracula.zsh-theme
 
 dconf load /org/gnome/terminal/legacy/profiles:/:fb358fc9-49ea-4252-ad34-1d25c649e633/ <./ubuntu/terminal_profile.dconf
 
@@ -48,9 +51,9 @@ add_list_id=fb358fc9-49ea-4252-ad34-1d25c649e633
 old_list=$(dconf read /org/gnome/terminal/legacy/profiles:/list | tr -d "]")
 
 if [ -z "$old_list" ]; then
-	front_list="["
+  front_list="["
 else
-	front_list="$old_list, "
+  front_list="$old_list, "
 fi
 
 new_list="$front_list'$add_list_id']"
