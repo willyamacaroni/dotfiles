@@ -23,7 +23,21 @@ return {
         sorbet = {
           root_dir = function(fname)
             local util = require("lspconfig.util")
-            return util.root_pattern("sorbet/config")(fname) or util.find_git_ancestor(fname)
+            local root = util.root_pattern("sorbet/config")(fname) or util.find_git_ancestor(fname)
+
+            -- Only enable if "sorbet" is found in the Gemfile
+            if root then
+              local gemfile_path = root .. "/Gemfile"
+              local f = io.open(gemfile_path, "r")
+              if f then
+                local content = f:read("*all")
+                f:close()
+                if content:match("sorbet") then
+                  return root
+                end
+              end
+            end
+            return nil
           end,
         },
         -- Add Python LSP
